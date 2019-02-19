@@ -3,11 +3,6 @@
 # Setup sudo
 echo "ALL ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers
 
-# Load profile
-echo '\
-     . /etc/profile ; \
-    ' >> /root/.profile
-
 # Common packages
 yum install -y distribution-gpg-keys epel-release
 yum update -y
@@ -15,9 +10,11 @@ yum install -y  krb5-workstation \
                 ipa-client \
                 libpam-ccreds \
                 auth-client-config \
+                kstart \
                 curl \
                 less \
                 sudo \
+                screen \
                 zsh \
                 which \
                 emacs-nox \
@@ -29,11 +26,8 @@ yum install -y  krb5-workstation \
                 lz4 lz4-devel \
                 java-1.8.0-openjdk-devel \
                 openssl-devel \
-                python36 \
-                python36-devel \
-                python36-pip \
-                python36-setuptools \
-                python36-requests
+                python36 python36-devel \
+                python36-pip python36-setuptools python36-requests
 
 yum groups
 yum groupinstall -y "Development tools"
